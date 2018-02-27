@@ -5,4 +5,7 @@ module.exports = {
       "browser": true,
       "jest": true,
     },
+    "rules": {
+      "no-console": 0,
+    },
 };
