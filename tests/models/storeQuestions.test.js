@@ -11,7 +11,10 @@ describe('Testing /store', () => {
       url: '/store',
     };
     Server.inject(request, (response) => {
-      console.log(response.result.quesArray);
+      expect(typeof response.result.resultBulkCreate[0].id).toBe('number');
+      expect(typeof response.result.resultBulkCreate[0].question).toBe('string');
+      expect(typeof response.result.resultBulkCreate[0].answer).toBe('string');
+      expect(response.result.resultBulkCreate[0].options instanceof Array).toBe(true);
       expect(response.result.statusCode).toBe(201);
       done();
     });
