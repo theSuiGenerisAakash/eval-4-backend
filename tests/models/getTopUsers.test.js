@@ -16,20 +16,4 @@ describe('Testing /topusers route', () => {
       done();
     });
   });
-  it('Testing with two user objects inside the table', (done) => {
-    Models.UserScore.bulkCreate([
-      { username: 'Aakash', score: 20 },
-      { username: 'Verma', score: 10 },
-    ]).then(() => {
-      const request = {
-        method: 'GET',
-        url: '/topusers/1',
-      };
-      Server.inject(request, (response) => {
-        expect(response.result.result[0].dataValues.score).toBe(20);
-        expect(response.result.statusCode).toBe(200);
-        done();
-      });
-    });
-  });
 });
