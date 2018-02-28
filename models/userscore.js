@@ -1,7 +1,10 @@
 
 module.exports = (sequelize, DataTypes) => {
   const UserScore = sequelize.define('UserScore', {
-    username: DataTypes.STRING,
+    username: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+    },
     choices: DataTypes.ARRAY(DataTypes.STRING),
     score: DataTypes.INTEGER,
   }, {});
