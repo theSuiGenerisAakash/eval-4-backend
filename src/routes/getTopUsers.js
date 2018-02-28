@@ -8,6 +8,7 @@ module.exports = [
       Models.UserScore.findAll({
         limit: request.params.howmany,
         order: [['score', 'DESC']],
+        attributes: ['username', 'score'],
       }).then((result) => {
         if (result.length === 0) {
           response({
